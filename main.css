@@ -1,0 +1,68 @@
+:root {
+  --lightblue: #91dbffd9;
+  --darkblue: #07090ad9;
+  --darkred: #722626;
+  --lightred: #d65151;
+  --white: #ffffff;
+  --black: #000000;
+  --lightgrey: #f3f3f3;
+  --blue: #3498db;
+}
+
+.title {
+  font-size: 60px;
+}
+
+.theme {
+  text-align: center;
+  --bg: var(--darkblue);
+  --fontColor: var(--lightred);
+  --btnBg: var(--white);
+  --btnFontColor: var(--black);
+}
+
+* {
+  color: var(--fontColor);
+  font-family: helvetica;
+}
+
+body {
+  background: var(--bg);
+}
+
+.btn {
+  color: var(--btnFontColor);
+  background-color: var(--btnBg);
+}
+
+.btn:focus { 
+  outline-style: none;
+}
+
+.loader {
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  height: 32px;
+  width: 32px;
+  border: 12px solid var(--lightgrey);
+  border-top: 12px solid var(--blue);
+  border-right: 12px solid var(--lightred);
+  border-radius: 40%;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.signature {
+  font-family: montserrat;
+  font-size: 12px;
+}
