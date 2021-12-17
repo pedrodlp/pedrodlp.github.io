@@ -5,16 +5,16 @@ let validIP = false;
 let loader = document.getElementById('spinner');
 
 //gives the ability to the input box to listen for the enter key (and others) and stores it in a variable
-function hit(){
+function hit() {
     let press = document.getElementById('IP');
-    press.addEventListener('keypress',caller(), false);
+    press.addEventListener('keypress', caller(), false);
 }
 
 //just as clicking the submit button, we'll call caller() upon a 'enter' key press
 //(press === 'Enter') ? caller() : null;
 
- //main function
-async function  caller() {
+//main function
+async function caller() {
     //catches the ip that the user gave
     ip = document.getElementById('IP').value;
     //hides the indication text
@@ -31,7 +31,7 @@ async function  caller() {
     let city = ipLocation.city
     let country = ipLocation.country;
     let region = ipLocation.region;
-    const  answer = document.getElementById('afterResponse')
+    const answer = document.getElementById('afterResponse')
 
     //Hide loader
     loader.style.display = 'none';
@@ -45,7 +45,7 @@ function validateIPaddress(ipAdress) {
     //regex took from reference
     let ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     //checking if the adress its not empty first and valid after
-    if(ipAdress !== null && ipAdress.match(ipformat)) {
+    if (ipAdress !== null && ipAdress.match(ipformat)) {
         //input is valid
         return true;
     }
@@ -75,7 +75,7 @@ function doQuery(ip) {
         .then(response => response.json())
         //from that json, taking with a return the data that we needed from shodan and how the fetch went
         .then(result => {
-            return {city:result.city, region:result.region_code, country:result.country_name}
+            return { city: result.city, region: result.region_code, country: result.country_name }
         })
         //in case fetch brings a error (not in a response form)
         .catch(error => console.log('error', error));

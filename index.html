@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,31 @@
     <title>IP Locator</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body class="theme">
 
     <div>
-    <div>
-        <h1 class="title">IP Locator</h1>
-    </div>
+        <div>
+            <h1 class="title">IP Locator</h1>
+        </div>
     </div>
 
     <div>
-    <form name="form" action="" method="get">
-        <input type="text" name="toSearch" id="IP" placeholder="ip adress">
-    </form>
-    <button id="myButton" onclick="caller()">Submit</button>
-    <p id="indication">Enter an IP and click submit</p>
-    <p id="afterResponse"></p>
+        <form name="form" action="" method="get">
+            <input type="text" name="toSearch" id="IP" placeholder="ip adress">
+        </form>
+        <button id="myButton" onclick="caller()">Submit</button>
+        <p id="indication">Enter an IP and click submit</p>
+        <p id="afterResponse"></p>
     </div>
     <div id="spinner" class="loader"></div>
     <div class="signature">
-      <p>Powered by shodan.io</p>
+        <p>Powered by shodan.io</p>
     </div>
 
     <div>
-    <script src="app.js"></script>
-    <noscript>You need to enable JavaScript to view the full site.</noscript>
+        <script src="app.js"></script>
+        <noscript>You need to enable JavaScript to view the full site.</noscript>
 </body>
+
 </html>
