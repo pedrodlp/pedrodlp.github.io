@@ -4,17 +4,10 @@ let validIP = false;
 //asigning a variable to the spinner class of the html
 let loader = document.getElementById('spinner');
 
-//gives the ability to the input box to listen for the enter key (and others) and stores it in a variable
-function hit() {
-    let press = document.getElementById('IP');
-    press.addEventListener('keypress', caller(), false);
-}
-
-//just as clicking the submit button, we'll call caller() upon a 'enter' key press
-//(press === 'Enter') ? caller() : null;
-
-//main function
-async function caller() {
+//main function using e to pass the event from the input and be able to stop the enter key from making a redirection
+async function caller(e) {
+    //preventing the redirection
+    e.preventDefault()
     //catches the ip that the user gave
     ip = document.getElementById('IP').value;
     //hides the indication text
@@ -25,20 +18,30 @@ async function caller() {
     validIP = validateIPaddress(ip);
     //calls the funtion that makes the request to shodan and stores the city, state and country from the ip. If we have a valid ip
     if (validIP) {
-        ipLocation = await doQuery(ip)
+        ipLocation = await doQuery(ip);
     };
-    //creating the elements the answer
-    let city = ipLocation.city
+    //creating the elements of the answer
+    let city = ipLocation.city;
     let country = ipLocation.country;
     let region = ipLocation.region;
-    const answer = document.getElementById('afterResponse')
+    //defining anwer empty before building it
+    let answer
+
+    //In case country or city (The important values) weren't found by shodan, we dont build the response and instead we give a alert()
+    if(country === undefined || city === undefined) {
+        //country and/or city werent found
+        alert('No information available for that IP.')
+    } else {
+        //asigning answer to it correspinding html element
+        answer = document.getElementById('afterResponse');
+    }
 
     //Hide loader
     loader.style.display = 'none';
 
     //create the answer and pass it to the html
     answer.innerHTML = `The location is: ${city}, ${region}, ${country}.`;
-};
+}
 
 //validate that the input is an ip adress
 function validateIPaddress(ipAdress) {

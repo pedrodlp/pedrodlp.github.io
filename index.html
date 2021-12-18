@@ -18,10 +18,10 @@
     </div>
 
     <div>
-        <form name="form" action="" method="get">
+        <form name="form" id="form" method="get" onsubmit="caller(event)">
             <input type="text" name="toSearch" id="IP" placeholder="ip adress">
         </form>
-        <button id="myButton" onclick="caller()">Submit</button>
+        <button id="myButton" onclick="caller(event)">Submit</button>
         <p id="indication">Enter an IP and click submit</p>
         <p id="afterResponse"></p>
     </div>
